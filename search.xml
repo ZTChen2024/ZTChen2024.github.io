@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Deutsch-Jozsa算法</title>
+      <link href="/2024/11/30/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/Deutsch-Jozsa%E7%AE%97%E6%B3%95/"/>
+      <url>/2024/11/30/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/Deutsch-Jozsa%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Deutsch-Jozsa算法"><a href="#Deutsch-Jozsa算法" class="headerlink" title="Deutsch-Jozsa算法"></a>Deutsch-Jozsa算法</h1><h2 id="1-量子计算并行性"><a href="#1-量子计算并行性" class="headerlink" title="1.量子计算并行性"></a>1.量子计算并行性</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>量子并行性可以是量子计算机可以同时计算函数f(x)在许多不同x处的值</p><h3 id="单量子比特"><a href="#单量子比特" class="headerlink" title="单量子比特"></a>单量子比特</h3><p>设置初态 | x ⟩ | y ⟩的双量子比特计算机，通过合适逻辑门将其转换为 | x ⟩| y⊕ f(x) ⟩</p><p>| x ⟩ :   数据寄存器</p><p>| y ⟩ ： 目标寄存器</p><p>⊕      ： 模2加法</p><p>| x ⟩ | y ⟩ ——＞| x ⟩| y⊕ f(x) ⟩   ： 称为Uf,且是酉算子</p><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/01.png"></p><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/03.png"></p><p>由此，利用量子计算机处于不同状态的叠加能力，单个f（x）路线就可以同时计算多个x值</p><h3 id="多量子比特"><a href="#多量子比特" class="headerlink" title="多量子比特"></a>多量子比特</h3><h4 id="H门推广"><a href="#H门推广" class="headerlink" title="H门推广"></a>H门推广</h4><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/04.png"></p><p>其中，求和是对x的所有可能取值，H变换产生了所有基态的平均叠加态</p><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/05.png"></p><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>由于最后测量时会使得该量子状态坍缩，实际上就等于只计算了一个值。显然，在经典计算机中也是能实现的。对此，Deutsch算法做出对信息的更加好的利用。</p><h2 id="2-Deutsch算法简介"><a href="#2-Deutsch算法简介" class="headerlink" title="2. Deutsch算法简介"></a>2. Deutsch算法简介</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/06.png"></p><h3 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h3><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/07.png"></p><p>如果是f（x）是常值函数，例如f（x）&#x3D; 0，则每个x计算出的结果都是0，那测量结果是|000….00&gt;的概率是100%，否则为非平衡常数。</p><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/08.png"></p><h2 id="3-Deutsch-Jozsa算法"><a href="#3-Deutsch-Jozsa算法" class="headerlink" title="3.Deutsch-Jozsa算法"></a>3.Deutsch-Jozsa算法</h2><p><img src="/./../../images/%E9%87%8F%E5%AD%90%C2%B7%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E5%9B%BE/%E7%AC%AC%E4%BA%94%E7%AB%A0/5.1/%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 量子计算第五章 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分发糖果</title>
       <link href="/2024/11/30/%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/"/>
       <url>/2024/11/30/%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/</url>
