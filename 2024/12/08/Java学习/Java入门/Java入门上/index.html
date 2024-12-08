@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java入门上 | ZTCodeGarden</title><meta name="author" content="陈智涛"><meta name="copyright" content="陈智涛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CMD步骤 Win + R  输入CMD  按下回车键     常见命令   盘符名称 + 冒号 盘符切换    dir 查看当前路径下的内容   cd目录 进入单级目录   cd.. 回退到上级目录   cd 目录1\目录2... 进入多级目录   cd\ 直接回退到盘符   cls 清屏   exit 退出cmd       练习：用cmd打开qq配置后，可以在任意目录下打开指定软件。  环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门上">
+<meta property="og:url" content="http://example.com/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/index.html">
+<meta property="og:site_name" content="ZTCodeGarden">
+<meta property="og:description" content="CMD步骤 Win + R  输入CMD  按下回车键     常见命令   盘符名称 + 冒号 盘符切换    dir 查看当前路径下的内容   cd目录 进入单级目录   cd.. 回退到上级目录   cd 目录1\目录2... 进入多级目录   cd\ 直接回退到盘符   cls 清屏   exit 退出cmd       练习：用cmd打开qq配置后，可以在任意目录下打开指定软件。  环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/01.jpg">
+<meta property="article:published_time" content="2024-12-08T02:13:06.000Z">
+<meta property="article:modified_time" content="2024-12-08T03:48:18.233Z">
+<meta property="article:author" content="陈智涛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/01.jpg"><link rel="shortcut icon" href="/img/02.jpg"><link rel="canonical" href="http://example.com/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java入门上',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/02.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/01.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZTCodeGarden</span></a><a class="nav-page-title" href="/"><span class="site-name">Java入门上</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Java入门上</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-08T02:13:06.000Z" title="发表于 2024-12-08 10:13:06">2024-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-08T03:48:18.233Z" title="更新于 2024-12-08 11:48:18">2024-12-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>Win + R</p>
+</li>
+<li><p>输入CMD</p>
+</li>
+<li><p>按下回车键</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/01.png"></p>
+</li>
+</ol>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/02.png"></p>
+<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><table>
+<thead>
+<tr>
+<th>盘符名称 + 冒号</th>
+<th>盘符切换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dir</td>
+<td>查看当前路径下的内容</td>
+</tr>
+<tr>
+<td>cd目录</td>
+<td>进入单级目录</td>
+</tr>
+<tr>
+<td>cd..</td>
+<td>回退到上级目录</td>
+</tr>
+<tr>
+<td>cd 目录1\目录2...</td>
+<td>进入多级目录</td>
+</tr>
+<tr>
+<td>cd\</td>
+<td>直接回退到盘符</td>
+</tr>
+<tr>
+<td>cls</td>
+<td>清屏</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>退出cmd</td>
+</tr>
+</tbody></table>
+<img src="/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/../../images/Java学习/java基础/Day01/03.png" style="zoom: 25%;">
+
+<img src="/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/../../images/Java学习/java基础/Day01/04.png" style="zoom: 67%;">
+
+<h2 id="练习：用cmd打开qq"><a href="#练习：用cmd打开qq" class="headerlink" title="练习：用cmd打开qq"></a>练习：用cmd打开qq</h2><p>配置后，可以在任意目录下打开指定软件。</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/05.png"></p>
+<h2 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h2><img src="/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/../../images/Java学习/java基础/Day01/06.png" style="zoom:50%;">
+
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/07.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/08.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/09.png"></p>
+<h1 id="Java入门"><a href="#Java入门" class="headerlink" title="Java入门"></a>Java入门</h1><h3 id="HelloWorld案例"><a href="#HelloWorld案例" class="headerlink" title="HelloWorld案例"></a>HelloWorld案例</h3><h4 id="记事本实现"><a href="#记事本实现" class="headerlink" title="记事本实现"></a>记事本实现</h4><p>javac：是JDK提供的编译工具，我们可以通过这个工具吧HelloWorld.java的文件编译成class文件</p>
+<p>运行：java用来运行代码，运行HelloWorld.class这个文件。运行时不用加后缀名。</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/14.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/10.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/11.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/12.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/13.png"></p>
+<h4 id="Java环境变量配置"><a href="#Java环境变量配置" class="headerlink" title="Java环境变量配置"></a>Java环境变量配置</h4><p>安装时自动配置java,javac的环境</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/15.png"></p>
+<p>手动配置：</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/1b.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/1c.png"></p>
+<h4 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h4><p>注意编译格式，一般为utf-8</p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/%E5%BF%AB%E6%8D%B7%E9%94%AE.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/3a.png"></p>
+<p><img src="/./../../../images/Java%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80/Day01/3b.png"></p>
+<h4 id="Java运行原理"><a href="#Java运行原理" class="headerlink" title="Java运行原理"></a>Java运行原理</h4><h4 id="JRE和JDK"><a href="#JRE和JDK" class="headerlink" title="JRE和JDK"></a>JRE和JDK</h4><ol>
+<li><p><strong>JDK是java开发工具包</strong></p>
+<ul>
+<li>JVM虚拟机：Java程序运行的地方</li>
+<li>核心类库：Java已经写好的东西，可以直接调用</li>
+<li>开发工具：javac，java，jdb</li>
+</ul>
+</li>
+<li><p><strong>JRE:java运行环境</strong></p>
+<p>由JVM，核心类库，运行工具</p>
+</li>
+<li><p><strong>JDK,RE,JVM的关系</strong></p>
+<p>JDK包含了JRE</p>
+</li>
+</ol>
+<h1 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">陈智涛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/">http://example.com/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">ZTCodeGarden</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/01.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/12/08/Java%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" title="63.不同路径"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">63.不同路径</div></div><div class="info-2"><div class="info-item-1">题目 思路目标在有障碍的条件下，寻找起点到终点的路径 图解 算法描述 先求出障碍矩阵的行列数用m和n表示  定义一个二维dp数组，含义为到达每个位置的路径数  如果障碍在起点或目标点，路径数为0，直接退出  反之，初始化dp数组，因为只能向右或向下移动，所以第一行和第一列只有一种方案，如果有障碍物则不进行初始化  遍历内部的位置，但是要注意内部位置是否有障碍物，如果有障碍物，则路径数为0，其他情况则由当前位置的前一个上面位置和前一个左面位置决定，可得递推式$$dp[i][j] &#x3D; if(obstacleGrid[i][j] &#x3D;&#x3D; 1) \quad? \quad0 \quad: dp[i-1][j] + dp[i][j-1]$$   完整代码12345678910111213141516171819202122232425262728293031323334class Solution &#123;    public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123;       ...</div></div></div></a><a class="pagination-related" href="/2024/12/07/%E5%8A%9B%E6%89%A3/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AF%87/62%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" title="62不同路径"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">62不同路径</div></div><div class="info-2"><div class="info-item-1">问题 思路目标寻找从左上角到达右下角的路径数 图解 算法描述 定义一个二维dp数组，每个单元表示到达该单元的路径数  由于只能向左或向上走，可以发现从起点开始，一直向上和一直向左其实只有1种方案，将其初始化为1  其余格子可以分解为它的左侧格子和下侧格子的累计,可得递推式$$dp[i][j] &#x3D; dp[i-1][j] + dp[i][j-1]$$   完整代码12345678910111213141516171819202122232425262728class Solution &#123;public:    int uniquePaths(int m, int n) &#123;        //可以把图旋转看，即看做机器人从左下角到达右上角        //初始化dp数组，表示到达坐标（i，j）时所需要的方案数        vector&lt;vector&lt;long long&gt;&gt; dp(m, vector&lt;long long&gt;(n));       ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/01.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">陈智涛</div><div class="author-info-description">纵使前路茫茫，莫回头，随心荡人间</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CMD"><span class="toc-number">1.</span> <span class="toc-text">CMD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">常见命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%94%A8cmd%E6%89%93%E5%BC%80qq"><span class="toc-number">1.3.</span> <span class="toc-text">练习：用cmd打开qq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">环境变量配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%85%A5%E9%97%A8"><span class="toc-number">2.</span> <span class="toc-text">Java入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HelloWorld%E6%A1%88%E4%BE%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">HelloWorld案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E4%BA%8B%E6%9C%AC%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">记事本实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">Java环境变量配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Notepad"><span class="toc-number">2.0.1.3.</span> <span class="toc-text">Notepad++</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">2.0.1.4.</span> <span class="toc-text">Java运行原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JRE%E5%92%8CJDK"><span class="toc-number">2.0.1.5.</span> <span class="toc-text">JRE和JDK</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Java基础语法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/08/Java%E8%93%9D%E6%A1%A5%E6%9D%AF/Java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" title="Java基础类型与输入输出">Java基础类型与输入输出</a><time datetime="2024-12-08T07:43:12.000Z" title="发表于 2024-12-08 15:43:12">2024-12-08</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/08/Java%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" title="数学方法">数学方法</a><time datetime="2024-12-08T07:13:21.000Z" title="发表于 2024-12-08 15:13:21">2024-12-08</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/08/Java%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" title="63.不同路径">63.不同路径</a><time datetime="2024-12-08T07:10:01.000Z" title="发表于 2024-12-08 15:10:01">2024-12-08</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/08/Java%E5%AD%A6%E4%B9%A0/Java%E5%85%A5%E9%97%A8/Java%E5%85%A5%E9%97%A8%E4%B8%8A/" title="Java入门上">Java入门上</a><time datetime="2024-12-08T02:13:06.000Z" title="发表于 2024-12-08 10:13:06">2024-12-08</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/07/%E5%8A%9B%E6%89%A3/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AF%87/62%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" title="62不同路径">62不同路径</a><time datetime="2024-12-07T01:46:04.000Z" title="发表于 2024-12-07 09:46:04">2024-12-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 陈智涛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
