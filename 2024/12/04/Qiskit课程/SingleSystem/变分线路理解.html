@@ -1,0 +1,298 @@
+<h1 id="参考1"><a href="#参考1" class="headerlink" title="参考1"></a>参考1</h1><pre><code class="python">from qiskit.circuit.library import TwoLocal
+from math import pi
+
+reference_circuit = TwoLocal(2, &quot;rx&quot;, &quot;cz&quot;, entanglement=&quot;linear&quot;, reps=1)
+theta_list = [pi / 2, pi / 3, pi / 3, pi / 2]
+
+reference_circuit = reference_circuit.assign_parameters(theta_list)
+
+reference_circuit.decompose().draw(&quot;mpl&quot;)
+</code></pre>
+<h3 id="1-TwoLocal-电路构建"><a href="#1-TwoLocal-电路构建" class="headerlink" title="1. TwoLocal 电路构建"></a>1. <strong><code>TwoLocal</code> 电路构建</strong></h3><pre><code>python
+
+
+复制代码
+reference_circuit = TwoLocal(2, &quot;rx&quot;, &quot;cz&quot;, entanglement=&quot;linear&quot;, reps=1)
+</code></pre>
+<p>这行代码创建了一个包含 2 个量子比特的电路，且包含以下部分：</p>
+<ul>
+<li><strong>旋转门</strong>：你指定了旋转门为 <code>&quot;rx&quot;</code>，表示使用 <strong>Rx</strong> 旋转门。</li>
+<li><strong>纠缠门</strong>：你指定了纠缠门为 <code>&quot;cz&quot;</code>，表示使用 <strong>CNOT</strong> 门。</li>
+<li><strong>线性纠缠</strong>：通过 <code>entanglement=&quot;linear&quot;</code>，电路将采用线性纠缠结构，即量子比特依次纠缠（量子比特 1 与量子比特 2 纠缠）。</li>
+<li><strong>reps&#x3D;1</strong>：电路的重复次数为 1 次。</li>
+</ul>
+<h3 id="2-参数赋值"><a href="#2-参数赋值" class="headerlink" title="2. 参数赋值"></a>2. <strong>参数赋值</strong></h3><pre><code>python复制代码theta_list = [pi / 2, pi / 3, pi / 3, pi / 2]
+reference_circuit = reference_circuit.assign_parameters(theta_list)
+</code></pre>
+<ul>
+<li><p><code>theta_list</code> 包含了四个参数：<code>[π/2, π/3, π/3, π/2]</code>。</p>
+</li>
+<li><pre><code>assign_parameters
+</code></pre>
+<p> 方法将这些参数依次赋值到电路中。根据 </p>
+<pre><code>TwoLocal
+</code></pre>
+<p> 的构造方式，这些参数会赋给旋转门 </p>
+<pre><code>rx
+</code></pre>
+<p>，具体是：</p>
+<ul>
+<li>第一个参数 <code>π/2</code> 赋给第一个 <code>rx</code> 门。</li>
+<li>第二个参数 <code>π/3</code> 赋给第二个 <code>rx</code> 门。</li>
+<li>第三个参数 <code>π/3</code> 赋给第三个 <code>rx</code> 门。</li>
+<li>第四个参数 <code>π/2</code> 赋给第四个 <code>rx</code> 门。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-电路展开"><a href="#3-电路展开" class="headerlink" title="3. 电路展开"></a>3. <strong>电路展开</strong></h3><pre><code>python
+
+
+复制代码
+reference_circuit.decompose().draw(&quot;mpl&quot;)
+</code></pre>
+<ul>
+<li>**<code>decompose()</code>**：该方法将电路中的复合门分解为更基本的门，例如将 <code>TwoLocal</code> 电路中的高阶门（如 <code>rx</code> 和 <code>cz</code>）分解为单比特门和多比特门的组合。此步骤将返回一个基础门操作的电路。</li>
+<li>**<code>draw(&quot;mpl&quot;)</code>**：这会以 matplotlib 的风格绘制展开后的电路图。</li>
+</ul>
+<h1 id="参考2"><a href="#参考2" class="headerlink" title="参考2"></a>参考2</h1><h3 id="1-ZZFeatureMap-的创建"><a href="#1-ZZFeatureMap-的创建" class="headerlink" title="1. ZZFeatureMap 的创建"></a>1. <strong>ZZFeatureMap 的创建</strong></h3><pre><code>python
+
+
+复制代码
+zz_feature_map_reference = ZZFeatureMap(feature_dimension=2, reps=2)
+</code></pre>
+<p>这行代码创建了一个 <code>ZZFeatureMap</code>，该特征映射包含以下设置：</p>
+<ul>
+<li><strong>feature_dimension&#x3D;2</strong>：这表示特征映射将有 2 个输入特征（即 2 个量子比特）。每个输入特征都通过量子门转换为量子态。</li>
+<li><strong>reps&#x3D;2</strong>：这个参数指定了该特征映射重复的次数，即会有两层相同的量子门应用，构建一个更复杂的映射。</li>
+</ul>
+<p><code>ZZFeatureMap</code> 是量子机器学习中常见的特征映射方法，特别是用于将经典数据映射到量子态上，通常用于支持向量机（SVM）等模型。</p>
+<h3 id="2-赋值参数"><a href="#2-赋值参数" class="headerlink" title="2. 赋值参数"></a>2. <strong>赋值参数</strong></h3><pre><code>python复制代码data = [0.1, 0.2]
+zz_feature_map_reference = zz_feature_map_reference.assign_parameters(data)
+</code></pre>
+<ul>
+<li>**data &#x3D; [0.1, 0.2]**：这是一组经典数据，用作特征映射的输入。它包含两个数据点，分别是 <code>0.1</code> 和 <code>0.2</code>。</li>
+<li>**assign_parameters(data)**：将数据 <code>data</code> 作为输入，给量子电路的参数进行赋值。在 <code>ZZFeatureMap</code> 中，这些数据将被应用于旋转门（如 <code>rx</code> 和 <code>rz</code>）。</li>
+</ul>
+<h3 id="3-展开电路"><a href="#3-展开电路" class="headerlink" title="3. 展开电路"></a>3. <strong>展开电路</strong></h3><pre><code>python
+
+
+复制代码
+zz_feature_map_reference.decompose().draw(&quot;mpl&quot;)
+</code></pre>
+<ul>
+<li>**<code>decompose()</code>**：该方法将 <code>ZZFeatureMap</code> 电路分解为更基本的量子门，通常包括旋转门和 <code>cz</code> 门。<code>ZZFeatureMap</code> 本身是一个较为复杂的门操作，其分解步骤有助于更清晰地展示电路的基本组成部分。</li>
+<li>**<code>draw(&quot;mpl&quot;)</code>**：这会使用 matplotlib 风格绘制电路图。</li>
+</ul>
+<h3 id="ZZFeatureMap-的结构"><a href="#ZZFeatureMap-的结构" class="headerlink" title="ZZFeatureMap 的结构"></a><strong>ZZFeatureMap 的结构</strong></h3><p><code>ZZFeatureMap</code> 由多个旋转门和 <strong>CNOT</strong> 门（或 <strong>CZ</strong> 门）组成，以下是其内部结构的简要说明：</p>
+<ul>
+<li>旋转门 <code>rx</code> 和 <code>rz</code> 用来将输入数据映射到量子比特上。</li>
+<li><strong>CNOT</strong> 门或 <strong>CZ</strong> 门用于生成量子比特间的纠缠。</li>
+<li>电路的每一层都会应用这些门操作，并且 <code>reps</code> 指定了这些操作的重复次数。</li>
+</ul>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a><strong>最终效果</strong></h3><ul>
+<li>你将获得一个量子电路的图示，展示如何将经典数据 <code>[0.1, 0.2]</code> 转换为量子态，并通过量子操作进行处理。</li>
+<li>这个电路是一个量子特征映射，它可以用于量子机器学习算法，通常用于从量子态中提取特征，供后续的机器学习模型（例如量子支持向量机）使用。</li>
+</ul>
+<h3 id="可能的扩展"><a href="#可能的扩展" class="headerlink" title="可能的扩展"></a><strong>可能的扩展</strong></h3><ul>
+<li><strong>更高维度的特征空间</strong>：你可以增加 <code>feature_dimension</code>，例如将其设置为 3 或 4，以处理更多的输入特征。</li>
+<li><strong>更多重复</strong>：增加 <code>reps</code> 参数的值，能够让电路变得更复杂，从而提高其拟合能力。</li>
+</ul>
+<h1 id="参考3"><a href="#参考3" class="headerlink" title="参考3"></a>参考3</h1><pre><code class="python">from qiskit.circuit import QuantumCircuit, Parameter
+
+theta = Parameter(&quot;θ&quot;)
+
+qc = QuantumCircuit(3)
+qc.rx(theta, 0)
+qc.cx(0, 1)
+qc.x(2)
+
+qc.draw(&quot;mpl&quot;)
+</code></pre>
+<h3 id="1-定义参数-θ"><a href="#1-定义参数-θ" class="headerlink" title="1. 定义参数 θ"></a>1. <strong>定义参数 <code>θ</code></strong></h3><pre><code>python
+
+
+复制代码
+theta = Parameter(&quot;θ&quot;)
+</code></pre>
+<ul>
+<li>你定义了一个名为 <code>θ</code> 的量子参数。<code>Parameter</code> 类用于在量子电路中表示符号化的参数。这意味着 <code>θ</code> 在电路运行时并没有确定值，而是作为一个符号参数存在，之后你可以将具体的数值分配给它。</li>
+</ul>
+<h3 id="2-创建量子电路"><a href="#2-创建量子电路" class="headerlink" title="2. 创建量子电路"></a>2. <strong>创建量子电路</strong></h3><pre><code>python
+
+
+复制代码
+qc = QuantumCircuit(3)
+</code></pre>
+<ul>
+<li>这行代码创建了一个包含 3 个量子比特的量子电路。它是一个简单的量子电路，包含 3 个量子比特，可以对它们应用量子门。</li>
+</ul>
+<h3 id="3-应用量子门"><a href="#3-应用量子门" class="headerlink" title="3. 应用量子门"></a>3. <strong>应用量子门</strong></h3><pre><code>python
+
+
+复制代码
+qc.rx(theta, 0)
+</code></pre>
+<ul>
+<li><pre><code>qc.rx(theta, 0)
+</code></pre>
+<p>：在量子比特 0 上应用一个 </p>
+<p>Rx</p>
+<p> 旋转门，旋转角度是符号化参数 </p>
+<pre><code>θ
+</code></pre>
+<p>。</p>
+<ul>
+<li><strong>Rx</strong> 门用于绕 X 轴旋转量子比特，旋转角度由参数 <code>θ</code> 决定。</li>
+</ul>
+</li>
+</ul>
+<pre><code>python
+
+
+复制代码
+qc.cx(0, 1)
+</code></pre>
+<ul>
+<li><pre><code>qc.cx(0, 1)
+</code></pre>
+<p>：在量子比特 0 和 量子比特 1 之间应用 </p>
+<p>CNOT</p>
+<p>（受控非门）操作。</p>
+<ul>
+<li>如果量子比特 0 的状态是 1，量子比特 1 的状态会翻转。</li>
+</ul>
+</li>
+</ul>
+<pre><code>python
+
+
+复制代码
+qc.x(2)
+</code></pre>
+<ul>
+<li><code>qc.x(2)</code>：在量子比特 2 上应用 <strong>X</strong> 门，即 <strong>Pauli-X</strong> 门，也叫 <strong>NOT</strong> 门，它将量子比特的状态从 <code>|0⟩</code> 翻转到 <code>|1⟩</code>，或从 <code>|1⟩</code> 翻转到 <code>|0⟩</code>。</li>
+</ul>
+<h3 id="4-绘制电路"><a href="#4-绘制电路" class="headerlink" title="4. 绘制电路"></a>4. <strong>绘制电路</strong></h3><pre><code>python
+
+
+复制代码
+qc.draw(&quot;mpl&quot;)
+</code></pre>
+<ul>
+<li><code>qc.draw(&quot;mpl&quot;)</code>：使用 matplotlib（mpl）风格绘制量子电路。这将生成一个直观的电路图，展示每个量子门在电路中的应用顺序和位置。</li>
+</ul>
+<h3 id="电路图说明"><a href="#电路图说明" class="headerlink" title="电路图说明"></a><strong>电路图说明</strong></h3><ol>
+<li><strong>Rx 门</strong>：在量子比特 0 上应用一个 Rx 旋转门，旋转角度是参数 <code>θ</code>。</li>
+<li><strong>CNOT 门</strong>：在量子比特 0 和量子比特 1 之间应用 CNOT 门，量子比特 0 作为控制比特，量子比特 1 作为目标比特。</li>
+<li><strong>X 门</strong>：在量子比特 2 上应用 X 门（即 Pauli-X 门）。</li>
+</ol>
+<h3 id="输出电路示例"><a href="#输出电路示例" class="headerlink" title="输出电路示例"></a><strong>输出电路示例</strong></h3><p>运行 <code>qc.draw(&quot;mpl&quot;)</code> 后，Qiskit 会绘制出电路图。图示会显示每个量子门的位置以及它们的作用：</p>
+<pre><code>makefile复制代码     ┌───────┐     ┌───┐     
+q_0: ┤ Rx(θ) ├──■──┤ X ├───
+     └───────┘  │  └───┘   
+q_1: ──────────■──────────
+                │          
+q_2: ──────────┤ X ├──────
+                └───┘      
+</code></pre>
+<ul>
+<li>**<code>Rx(θ)</code>**：表示在量子比特 0 上应用 Rx 门，旋转角度为 <code>θ</code>。</li>
+<li>**<code>■</code>**：表示 CNOT 门的控制比特位置（量子比特 0）。</li>
+<li>**<code>X</code>**：表示在量子比特 2 上应用 X 门。</li>
+</ul>
+<h1 id="参考4"><a href="#参考4" class="headerlink" title="参考4"></a>参考4</h1><pre><code class="python">from qiskit.circuit.library import NLocal, CCXGate, CRZGate, RXGate
+from qiskit.circuit import Parameter
+
+theta = Parameter(&quot;θ&quot;)
+ansatz = NLocal(
+    num_qubits=5,
+    rotation_blocks=[RXGate(theta), CRZGate(theta)],
+    entanglement_blocks=CCXGate(),
+    entanglement=[[0, 1, 2], [0, 2, 3], [4, 2, 1], [3, 1, 0]],
+    reps=2,
+    insert_barriers=True,
+)
+ansatz.decompose().draw(&quot;mpl&quot;)
+</code></pre>
+<h3 id="1-定义参数-θ-1"><a href="#1-定义参数-θ-1" class="headerlink" title="1. 定义参数 θ"></a>1. <strong>定义参数 <code>θ</code></strong></h3><pre><code>python
+
+
+复制代码
+theta = Parameter(&quot;θ&quot;)
+</code></pre>
+<ul>
+<li>你定义了一个符号化的量子参数 <code>θ</code>，这个参数会被后续的量子门应用，用于量子电路的旋转角度。</li>
+</ul>
+<h3 id="2-创建-NLocal-电路"><a href="#2-创建-NLocal-电路" class="headerlink" title="2. 创建 NLocal 电路"></a>2. <strong>创建 <code>NLocal</code> 电路</strong></h3><pre><code>python复制代码ansatz = NLocal(
+    num_qubits=5,
+    rotation_blocks=[RXGate(theta), CRZGate(theta)],
+    entanglement_blocks=CCXGate(),
+    entanglement=[[0, 1, 2], [0, 2, 3], [4, 2, 1], [3, 1, 0]],
+    reps=2,
+    insert_barriers=True,
+)
+</code></pre>
+<ul>
+<li><p>**<code>num_qubits=5</code>**：这个量子电路包含 5 个量子比特。</p>
+</li>
+<li><p><code>rotation_blocks=[RXGate(theta), CRZGate(theta)]</code></p>
+<p>：这是旋转块（rotation blocks），它包括两个旋转门：</p>
+<ul>
+<li><code>RXGate(theta)</code>：绕 X 轴的旋转门，旋转角度为 <code>θ</code>。</li>
+<li><code>CRZGate(theta)</code>：控制 Z 门，控制比特旋转角度为 <code>θ</code>，目标比特绕 Z 轴旋转。</li>
+</ul>
+</li>
+<li><p>**<code>entanglement_blocks=CCXGate()</code>**：这是纠缠块（entanglement blocks），在这里使用了 <strong>CCXGate</strong>（也叫 Toffoli 门），它是一个三比特的受控门，控制比特 0 和 1 控制目标比特 2 的翻转。</p>
+</li>
+<li><p><code>entanglement=[[0, 1, 2], [0, 2, 3], [4, 2, 1], [3, 1, 0]]</code></p>
+<p>：这个列表定义了量子比特之间的纠缠结构，指定了哪些比特组之间需要进行纠缠：</p>
+<ul>
+<li><code>[0, 1, 2]</code>、<code>[0, 2, 3]</code> 等表示哪些量子比特是 Toffoli 门的控制比特和目标比特。</li>
+<li>这些量子比特组将被纠缠。</li>
+</ul>
+</li>
+<li><p>**<code>reps=2</code>**：这个电路中的所有块将重复应用 2 次，以增加电路的复杂度。</p>
+</li>
+<li><p>**<code>insert_barriers=True</code>**：在每个重复的旋转块之间插入屏障（barriers），屏障在 Qiskit 中用于可视化电路结构，并阻止优化器合并量子门。</p>
+</li>
+</ul>
+<h3 id="3-分解电路并绘制"><a href="#3-分解电路并绘制" class="headerlink" title="3. 分解电路并绘制"></a>3. <strong>分解电路并绘制</strong></h3><pre><code>python
+
+
+复制代码
+ansatz.decompose().draw(&quot;mpl&quot;)
+</code></pre>
+<ul>
+<li>**<code>decompose()</code>**：这个方法会将电路中的复合门分解成基本量子门。这对于分析电路或在执行之前进行优化是很有用的。</li>
+<li>**<code>draw(&quot;mpl&quot;)</code>**：用 matplotlib 风格绘制电路图。<code>draw</code> 方法会显示分解后的电路，并通过图形化表示量子门和比特之间的关系。</li>
+</ul>
+<h3 id="电路构建分析"><a href="#电路构建分析" class="headerlink" title="电路构建分析"></a><strong>电路构建分析</strong></h3><ol>
+<li><p>旋转门</p>
+<p>：</p>
+<ul>
+<li><code>RXGate(theta)</code>：绕 X 轴旋转量子比特。</li>
+<li><code>CRZGate(theta)</code>：控制 Z 门，控制比特 0 和目标比特之间的旋转角度为 <code>θ</code>。</li>
+</ul>
+</li>
+<li><p>纠缠门</p>
+<p>：</p>
+<ul>
+<li><code>CCXGate()</code>（Toffoli 门）：一个三比特控制门，控制比特 0 和 1 控制比特 2 翻转。</li>
+</ul>
+</li>
+<li><p>纠缠结构</p>
+<p>：</p>
+<ul>
+<li>电路使用了 4 个纠缠块的定义，如 <code>[0, 1, 2]</code>，这意味着量子比特 0、1、2 之间通过 Toffoli 门连接。</li>
+<li>每组纠缠操作定义了三个量子比特的交互。</li>
+</ul>
+</li>
+<li><p>重复和屏障</p>
+<p>：</p>
+<ul>
+<li>电路中每个旋转块（旋转门和纠缠门的组合）都会重复 2 次。</li>
+<li>在每个重复块之间插入屏障，有助于使电路结构更加清晰。</li>
+</ul>
+</li>
+</ol>
+<h3 id="电路图示"><a href="#电路图示" class="headerlink" title="电路图示"></a><strong>电路图示</strong></h3><p>执行 <code>ansatz.decompose().draw(&quot;mpl&quot;)</code> 后，你将看到一个包含 5 个量子比特的电路图。图示展示了每个旋转门（<code>RX</code> 和 <code>CRZ</code>）、Toffoli 门（<code>CCX</code>）以及它们之间的纠缠结构。由于你设置了 <code>reps=2</code>，这些门会重复应用两次，从而使得电路的结构更加复杂。</p>
