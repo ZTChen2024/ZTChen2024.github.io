@@ -1,0 +1,76 @@
+<h1 id="图像生成三大模型"><a href="#图像生成三大模型" class="headerlink" title="图像生成三大模型"></a>图像生成三大模型</h1><h2 id="生成对抗网络（GAN）"><a href="#生成对抗网络（GAN）" class="headerlink" title="生成对抗网络（GAN）"></a>生成对抗网络（GAN）</h2><h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/./GAN%E6%A8%A1%E5%9E%8B/01.png"></p>
+<h3 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h3><p>本质上是使用生成网络产生的分布$\ P_g$去拟合真实分布$\ P_{data}$</p>
+<p><img src="/./GAN%E6%A8%A1%E5%9E%8B/04.png"></p>
+<p><img src="/./GAN%E6%A8%A1%E5%9E%8B/05.png"></p>
+<p><img src="/./GAN%E6%A8%A1%E5%9E%8B/06.png"></p>
+<p><img src="/./GAN%E6%A8%A1%E5%9E%8B/07.png"></p>
+<p>当目标函数最小时，会出现$\ P_{data(x)} &#x3D;  P_{g(x)}$,此时D(x)&#x3D;$\ \frac{1}{2}$</p>
+<p>此时说明，生成器拟合的假数据分布已经逼近真实数据分布，鉴别器已经无法鉴别输入的数据到底是真还是假。</p>
+<h2 id="变分自编码器（VAE）"><a href="#变分自编码器（VAE）" class="headerlink" title="变分自编码器（VAE）"></a>变分自编码器（VAE）</h2><h3 id="流程图-1"><a href="#流程图-1" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/./VAE%E6%A8%A1%E5%9E%8B/VAE.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/VAE%E6%A1%86%E6%9E%B6.png"></p>
+<h3 id="数学原理-1"><a href="#数学原理-1" class="headerlink" title="数学原理"></a>数学原理</h3><h4 id="推导目标函数"><a href="#推导目标函数" class="headerlink" title="推导目标函数"></a>推导目标函数</h4><p>总体求所有样本的最大似然估计</p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A601.png"></p>
+<p>从单个样本开始推导</p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A602.png"></p>
+<p><strong>$\ q_{\phi}(z|x)$是我们人为指定的分布，一般满足多维标准正态分布，方便建立一个真实数据分布到编码器的一个映射</strong></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A603.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A604.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A605.png"></p>
+<p>使用琴声不等式，可以得到如下公式，将求解所有样本的最大似然化转换为求解最大似然化的下界问题</p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A606.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A607.png"></p>
+<h4 id="细化目标函数"><a href="#细化目标函数" class="headerlink" title="细化目标函数"></a>细化目标函数</h4><p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A608.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A609.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A610.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A611.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A612.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A613.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A614.png"></p>
+<h4 id="重参数化"><a href="#重参数化" class="headerlink" title="重参数化"></a>重参数化</h4><p>防止无法进行有效的反向传播计算</p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A615.png"></p>
+<p><img src="/./VAE%E6%A8%A1%E5%9E%8B/%E6%95%B0%E5%AD%A616.png"></p>
+<h2 id="扩散模型"><a href="#扩散模型" class="headerlink" title="扩散模型"></a>扩散模型</h2><h3 id="流程图-2"><a href="#流程图-2" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/01.png"></p>
+<h3 id="数学原理-2"><a href="#数学原理-2" class="headerlink" title="数学原理"></a>数学原理</h3><h4 id="前向扩散"><a href="#前向扩散" class="headerlink" title="前向扩散"></a>前向扩散</h4><p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B01.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B02.png"></p>
+<h4 id="后向去噪"><a href="#后向去噪" class="headerlink" title="后向去噪"></a>后向去噪</h4><p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%8E%E5%90%911.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%8E%E5%90%9102.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%8E%E5%90%9103.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%8E%E5%90%9104.png"></p>
+<p><img src="/./%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%8E%E5%90%9106.png"></p>
+<h1 id="优缺点对比"><a href="#优缺点对比" class="headerlink" title="优缺点对比"></a>优缺点对比</h1><h3 id="1-变分自编码器（VAE）"><a href="#1-变分自编码器（VAE）" class="headerlink" title="1. 变分自编码器（VAE）"></a>1. 变分自编码器（VAE）</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li><strong>训练稳定性</strong>：VAE通过最大化变分下界（ELBO）来训练，训练过程通常比较稳定，不容易崩溃。</li>
+<li><strong>高效性</strong>：VAE能够生成高质量的样本，且生成速度较快。</li>
+<li><strong>概率模型</strong>：VAE是一个概率模型，可以为每个样本生成潜在变量的分布，从而更好地捕捉数据的潜在结构。</li>
+<li><strong>易于控制</strong>：通过调整潜在变量的分布，可以控制生成数据的特性。</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li><strong>生成质量较差</strong>：VAE生成的样本通常比GAN生成的样本质量差，尤其在图像生成方面，细节和真实感较差。</li>
+<li><strong>潜在空间问题</strong>：由于采用正则化，VAE的潜在空间可能不如GAN那样具有清晰的几何结构，因此在生成过程中可能不如GAN具有多样性。</li>
+<li><strong>模糊性</strong>：VAE生成的图像较为模糊，难以捕捉到细节。</li>
+</ul>
+<h3 id="2-生成对抗网络（GAN）"><a href="#2-生成对抗网络（GAN）" class="headerlink" title="2. 生成对抗网络（GAN）"></a>2. 生成对抗网络（GAN）</h3><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li><strong>生成质量高</strong>：GAN生成的图像通常质量较高，细节丰富，适合图像生成和增强任务。</li>
+<li><strong>灵活性强</strong>：GAN适用于许多任务，如图像生成、图像修复、超分辨率等，且生成的样本更为真实。</li>
+<li><strong>无监督学习</strong>：GAN可以在没有标签数据的情况下进行训练，适应性强。</li>
+</ul>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li><strong>训练不稳定</strong>：GAN的训练容易出现模式崩溃（mode collapse）或生成器与判别器的不平衡，导致生成质量不稳定。</li>
+<li><strong>需要较复杂的技巧</strong>：为了获得良好的效果，通常需要调节超参数和使用一些技巧（如WGAN、渐进式训练等）来解决训练不稳定的问题。</li>
+<li><strong>计算资源要求高</strong>：训练时需要大量计算资源，特别是在处理高分辨率图像时。</li>
+</ul>
+<h3 id="3-扩散模型（Diffusion-Models）"><a href="#3-扩散模型（Diffusion-Models）" class="headerlink" title="3. 扩散模型（Diffusion Models）"></a>3. 扩散模型（Diffusion Models）</h3><h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li><strong>生成质量高</strong>：扩散模型在图像生成任务中表现出色，能够生成细节丰富且真实的图像，甚至在某些情况下超过GAN。</li>
+<li><strong>平滑生成过程</strong>：扩散模型通过逐步去噪的过程生成图像，这种方式通常更为稳定，避免了GAN的训练不稳定问题。</li>
+<li><strong>理论基础扎实</strong>：扩散模型基于一个明确的数学框架，具有较强的理论解释性。</li>
+</ul>
+<h4 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li><strong>生成速度慢</strong>：扩散模型的生成过程需要多个步骤才能完成，每个步骤都需要计算，因此生成速度较慢。</li>
+<li><strong>计算开销大</strong>：由于生成过程需要进行多次迭代计算，扩散模型通常需要更多的计算资源和时间。</li>
+<li><strong>训练时间长</strong>：相比于VAE和GAN，扩散模型的训练时间更长，通常需要大量的训练数据和计算资源。</li>
+</ul>
+<h1 id="研究想法"><a href="#研究想法" class="headerlink" title="研究想法"></a>研究想法</h1><p>基于图像生成模型和量子经典混合态框架，来进行图像修复、超分辨率提高，图想去噪等方面内容。</p>
+<h2 id="基础内容学习"><a href="#基础内容学习" class="headerlink" title="基础内容学习"></a>基础内容学习</h2><p>1.数字图像处理（了解图像的基本知识与修复降噪相关的内容）</p>
+<p>2.深度学习（大部分降噪内容涉及到经典的卷积神经网络，残差网络，注意力机制等）</p>
+<p>3.量子pennly框架学习（设计变分量子线路）</p>
+<p>4.看近3年来有关图像修复，降噪方面的论文，先了解经典方面上的工作，并进行复现</p>
